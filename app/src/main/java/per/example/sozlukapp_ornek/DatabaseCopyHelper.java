@@ -26,7 +26,6 @@ public class DatabaseCopyHelper extends SQLiteOpenHelper {
     /**
      * Constructor
      * Takes and keeps a reference of the passed context in order to access to the application assets and resources.
-     *
      * @param context
      */
     public DatabaseCopyHelper(Context context) {
@@ -39,7 +38,7 @@ public class DatabaseCopyHelper extends SQLiteOpenHelper {
 
     /**
      * Creates a empty database on the system and rewrites it with your own database.
-     */
+     * */
     public void createDataBase() throws IOException {
 
         boolean dbExist = checkDataBase();
@@ -67,7 +66,6 @@ public class DatabaseCopyHelper extends SQLiteOpenHelper {
 
     /**
      * Check if the database already exist to avoid re-copying the file each time you open the application.
-     *
      * @return true if it exists, false if it doesn't
      */
     private boolean checkDataBase() {
@@ -97,7 +95,7 @@ public class DatabaseCopyHelper extends SQLiteOpenHelper {
      * Copies your database from your local assets-folder to the just created empty database in the
      * system folder, from where it can be accessed and handled.
      * This is done by transfering bytestream.
-     */
+     * */
     private void copyDataBase() throws IOException {
 
         //Open your local db as the input stream

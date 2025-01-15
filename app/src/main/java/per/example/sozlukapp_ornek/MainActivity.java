@@ -87,13 +87,17 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                         englishWord = edittxtIngilizce.getText().toString();
 
                         if (Objects.requireNonNull(edittxtIngilizce.getText().toString().isEmpty() & edittxtTurkce.getText().toString().isEmpty())) {
-                            inputLayout.setError("Lütfen ingilizce kelime alanını doldurunuz.");
-                            inputLayout2.setError("Lütfen türkçe kelime alanını doldurunuz.");
+
+                            inputLayout.setError("Lütfen bu alanı doldurunuz.");
+                            inputLayout2.setError("Lütfen bu alanı doldurunuz.");
                         } else {
 
-                            new KelimelerDao().kelimeEkle(dbc, turkishWord, englishWord);
+                            new KelimelerDao().kelimeEkle(dbc, englishWord, turkishWord);
                             Toast.makeText(MainActivity.this, edittxtIngilizce.getText() + " Kelimesi kaydedildi.", Toast.LENGTH_LONG).show();
                             bottomSheet.dismiss();
+                            kelimelerList = new KelimelerDao().tumKelimeler(dbc);
+                            KelimelerAdapter adapter = new KelimelerAdapter(getApplicationContext(), kelimelerList);
+                            rv.setAdapter(adapter);
                         }
                     }
                 });
@@ -102,7 +106,6 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                 bottomSheet.setOnDismissListener(new DialogInterface.OnDismissListener() {
                     @Override
                     public void onDismiss(DialogInterface dialog) {
-
                         //Toast.makeText(MainActivity.this, "Bottom Sheet kapandı", Toast.LENGTH_SHORT).show();
                     }
                 });

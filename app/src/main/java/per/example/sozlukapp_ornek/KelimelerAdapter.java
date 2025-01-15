@@ -15,11 +15,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 public class KelimelerAdapter extends RecyclerView.Adapter<KelimelerAdapter.cardviewTasarimTutucu> {
-    private Context context;
+    private Context c;
     private List<Kelimeler> kelimelerList;
 
     public KelimelerAdapter(Context context, List<Kelimeler> kelimelerList) {
-        this.context = context;
+        this.c = context;
         this.kelimelerList = kelimelerList;
     }
 
@@ -53,9 +53,10 @@ public class KelimelerAdapter extends RecyclerView.Adapter<KelimelerAdapter.card
 
         holder.cardViewWord.setOnClickListener(view -> {
 
-            Intent intentPage = new Intent(context, DetayActivity.class);
+            Intent intentPage = new Intent(c, DetayActivity.class);
             intentPage.putExtra("Nesne", kelime);
-            context.startActivity(intentPage);
+            intentPage.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            c.startActivity(intentPage);
         });
     }
 

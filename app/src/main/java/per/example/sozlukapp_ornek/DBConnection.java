@@ -13,11 +13,11 @@ public class DBConnection extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE \"kelimeler\" (\n" +
+        db.execSQL("CREATE TABLE IF NOT EXISTS \"kelimeler\" (\n" +
                 "\t\"kelime_id\"\tINTEGER,\n" +
-                "\t\"kelime_ingilizce\"\tTEXT,\n" +
-                "\t\"kelime_turkce\"\tTEXT,\n" +
-                "\tPRIMARY KEY(\"kelime_id\" AUTOINCREMENT)\n" + ")");
+                "\t\"ingilizce\"\tTEXT,\n" +
+                "\t\"turkce\"\tTEXT,\n" +
+                "\tPRIMARY KEY(\"kelime_id\" AUTOINCREMENT)\n" + ");");
     }
 
     @Override
