@@ -28,7 +28,6 @@ import com.google.android.material.textfield.TextInputLayout;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
     private RecyclerView rv;
@@ -86,7 +85,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                         turkishWord = edittxtTurkce.getText().toString();
                         englishWord = edittxtIngilizce.getText().toString();
 
-                        if (Objects.requireNonNull(edittxtIngilizce.getText().toString().isEmpty() & edittxtTurkce.getText().toString().isEmpty())) {
+                        if (edittxtIngilizce.getText().toString().isEmpty() & edittxtTurkce.getText().toString().isEmpty()) {
 
                             inputLayout.setError("Lütfen bu alanı doldurunuz.");
                             inputLayout2.setError("Lütfen bu alanı doldurunuz.");
