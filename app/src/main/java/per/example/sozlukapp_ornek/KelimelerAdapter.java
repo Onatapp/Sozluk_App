@@ -1,12 +1,12 @@
 package per.example.sozlukapp_ornek;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
@@ -57,6 +57,7 @@ public class KelimelerAdapter extends RecyclerView.Adapter<KelimelerAdapter.card
             intentPage.putExtra("Nesne", kelime);
             intentPage.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             c.startActivity(intentPage);
+           // ((Activity)c).finish(); Bu sayfayı backstage'den silme kullanımı.
         });
     }
 
